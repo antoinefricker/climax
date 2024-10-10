@@ -11,20 +11,31 @@
         "sourceType": "module",
         "requireConfigFile": false
     },
-    "plugins": ["prettier", "@typescript-eslint", "simple-import-sort"],
+    "plugins": [
+        "prettier",
+        "@typescript-eslint",
+        "simple-import-sort"
+    ],
     "extends": [
         "prettier",
         "plugin:prettier/recommended",
-        "eslint:recommended",
-        "plugin:@typescript-eslint/recommended"
-    ],
+        "eslint:recommended", 
+        "plugin:@typescript-eslint/recommended",
+        "plugin:storybook/recommended"
+    ], 
     "rules": {
         "consistent-return": "error",
-        "arrow-body-style": ["warn", "as-needed"],
+        "arrow-body-style": [
+            "warn",
+            "as-needed"
+        ],
         "no-console": [
             "error",
             {
-                "allow": ["warn", "error"]
+                "allow": [
+                    "warn",
+                    "error"
+                ]
             }
         ],
         "no-unused-vars": "off",
@@ -44,8 +55,12 @@
             }
         ],
         "no-unused-expressions": "off",
-        "@typescript-eslint/no-unused-expressions": ["error", { "allowTernary": true }],
-
+        "@typescript-eslint/no-unused-expressions": [
+            "error",
+            {
+                "allowTernary": true
+            }
+        ],
         "simple-import-sort/imports": "error",
         "simple-import-sort/exports": "error",
         "no-irregular-whitespace": [
