@@ -74,7 +74,7 @@ export const createRangeHolder = (): RangeHolder => {
 
 export const saveRange = (rangeHolder: RangeHolder) => {
     const selection = window.getSelection();
-    if (!selection) {
+    if (!selection || selection.rangeCount === 0) {
         return;
     }
     rangeHolder.range = selection.getRangeAt(0);
