@@ -20,5 +20,5 @@
         "noUnusedParameters": true,
         "noFallthroughCasesInSwitch": true
     },
-    "include": ["src", "_trash/stories", "_trash/climax", "_trash/utils"]
+    "include": ["src"]
 }

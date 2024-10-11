@@ -1,7 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400&display=swap');
+
 :root {
-    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-    line-height: 1.5;
+    font-family: 'Inconsolata', monospace;
+    font-optical-sizing: auto;
     font-weight: 400;
+    font-style: normal;
+    font-variation-settings: 'wdth' 100;
 
     color-scheme: light dark;
     color: #75898e;
@@ -25,15 +29,18 @@ body {
 h1,
 h2,
 h3 {
-    color: #076d67;
+    font-weight: 400;
+    font-style: normal;
+    color: #222222;
 }
 
 button {
-    padding: 0.5rem 1rem 0.25rem 1rem;
-    margin: 0 0.5rem 0 0;
+    padding: 0.5rem 1rem;
+    margin: 0 0.5rem 0.5rem 0;
 
     font-family: unset;
     font-size: 1.4rem;
+    font-weight: unset;
     color: #75898e;
     cursor: pointer;
 
@@ -46,41 +53,4 @@ hr {
     margin: 2rem 0;
     border: none;
     border-top: 1px solid #949d98;
-}
-
-.climax-editor {
-    padding: 1rem;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-
-    line-height: 110%;
-    font-size: 1.4rem;
-    color: #75898e;
-
-    border-radius: 4px;
-    background-color: #222222;
-}
-.climax-editor:focus {
-    outline: none;
-}
-.climax-editor .trigger {
-    padding: 0.25rem 0.25rem 0rem 0.25rem;
-    margin: 0;
-
-    color: #bfcbce;
-
-    border-radius: 4px;
-    background-color: #076d67;
-}
-
-.climax-logger {
-    margin-top: 1rem;
-    padding: 0.5rem;
-
-    font-size: 1rem;
-
-    border-radius: 4px;
-    background-color: #222222;
-
-    min-height: 300px;
 }

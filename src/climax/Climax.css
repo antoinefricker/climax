@@ -1,0 +1,29 @@
+.climax-editor,
+.climax-editor * {
+    box-sizing: border-box;
+}
+
+.climax-editor {
+    width: 100%;
+    padding: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+    font-size: 1.4rem;
+    color: #75898e;
+
+    border-radius: 4px;
+    background-color: #222222;
+}
+.climax-editor:focus {
+    outline: none;
+}
+
+.climax-editor .trigger {
+    color: #40b1aa;
+}
+
+.climax-editor::selection,
+.trigger::selection {
+    background-color: #525252;
+}
