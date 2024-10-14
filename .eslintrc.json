@@ -1,8 +1,8 @@
 {
     "parser": "@typescript-eslint/parser",
     "env": {
-        "browser": true,
-        "commonjs": false,
+        "browser": false,
+        "commonjs": true,
         "es6": true,
         "jest": true,
         "node": false
@@ -11,47 +11,25 @@
         "sourceType": "module",
         "requireConfigFile": false
     },
-    "plugins": [
-        "prettier",
-        "@typescript-eslint",
-        "simple-import-sort"
-    ],
-    "extends": [
-        "prettier",
-        "plugin:prettier/recommended",
-        "eslint:recommended", 
-        "plugin:@typescript-eslint/recommended",
-        "plugin:storybook/recommended"
-    ], 
+    "plugins": ["prettier", "@typescript-eslint", "simple-import-sort", "vitest"],
+    "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended", "plugin:react-hooks/recommended", "plugin:prettier/recommended"],
     "rules": {
         "consistent-return": "error",
-        "arrow-body-style": [
-            "warn",
-            "as-needed"
-        ],
+        "arrow-body-style": ["warn", "as-needed"],
         "no-console": [
             "error",
             {
-                "allow": [
-                    "warn",
-                    "error"
-                ]
+                "allow": ["warn", "error"]
             }
         ],
         "no-unused-vars": "off",
         "@typescript-eslint/no-unused-vars": [
-            "warn",
+            "off",
             {
                 "argsIgnorePattern": "^_",
                 "varsIgnorePattern": "^_",
-                "destructuredArrayIgnorePattern": "^_",
-                "ignoreRestSiblings": true
-            }
-        ],
-        "@typescript-eslint/consistent-type-imports": [
-            "error",
-            {
-                "fixStyle": "inline-type-imports"
+                "ignoreRestSiblings": true,
+                "caughtErrorsIgnorePattern": "^_"
             }
         ],
         "no-unused-expressions": "off",
@@ -59,6 +37,12 @@
             "error",
             {
                 "allowTernary": true
+            }
+        ],
+        "@typescript-eslint/consistent-type-imports": [
+            "error",
+            {
+                "fixStyle": "inline-type-imports"
             }
         ],
         "simple-import-sort/imports": "error",
