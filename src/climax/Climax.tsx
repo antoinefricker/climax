@@ -1,8 +1,9 @@
-import { useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 
 import { EditorConfig } from './types';
 import './Climax.css';
 import { parseInput } from './services/parseInput';
+import { rangeBelongsToNode } from './services/selectionUtils';
 
 export const Climax = ({ userInput = '', config }: ClimaxProps) => {
     const editorRef = useRef<HTMLDivElement | null>(null);
@@ -13,6 +14,22 @@ export const Climax = ({ userInput = '', config }: ClimaxProps) => {
         }
         editorRef.current.innerHTML = parseInput(config, userInput);
     }, [config, editorRef, userInput]);
+
+    const changeHandler = useCallback(() => {
+        if (!editorRef.current) {
+            return;
+        }
+
+        const selection = window.getSelection();
+        const range = selection?.getRangeAt(0);
+
+        if (!rangeBelongsToNode(range, editorRef.current)) {
+            return;
+        }
+
+        const input = editorRef.current.innerText;
+        editorRef.current.innerHTML = parseInput(config, input, range);
+    }, [editorRef]);
 
     if (!config) {
         return <p>Editor configuration is missing</p>;
@@ -25,6 +42,7 @@ export const Climax = ({ userInput = '', config }: ClimaxProps) => {
             data-testid="climax-editor"
             spellCheck={false}
             suppressContentEditableWarning={true}
+            onInput={changeHandler}
             ref={editorRef}
         />
     );

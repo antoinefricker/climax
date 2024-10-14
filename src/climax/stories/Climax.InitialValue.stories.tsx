@@ -49,9 +49,25 @@ export const Unformatted: ClimaxStory = {
         await expect(canvas.getByTestId<HTMLDivElement>('climax-editor').innerText).toEqual('::goi search for ::go ::gh climax');
     },
 };
-export const Preformatted: ClimaxStory = {
+export const PreFormatted: ClimaxStory = {
     args: {
         userInput: '<span class="trigger">::goi</span> search for <span class="trigger">::go</span> <span class="trigger">::gh</span> climax',
+        config: defaultEditorConfig,
+    },
+    play: async ({ canvasElement }) => {
+        const canvas = within(canvasElement);
+
+        await expect(canvas.getByTestId<HTMLDivElement>('climax-editor')).toBeInTheDocument();
+
+        await expect(canvas.getByTestId<HTMLDivElement>('climax-editor').innerHTML).toEqual(
+            '<span class="trigger">::goi</span> search for <span class="trigger">::go</span> <span class="trigger">::gh</span> climax',
+        );
+        await expect(canvas.getByTestId<HTMLDivElement>('climax-editor').innerText).toEqual('::goi search for ::go ::gh climax');
+    },
+};
+export const PartiallyFormatted: ClimaxStory = {
+    args: {
+        userInput: '<span class="trigger">::goi</span> search for ::go ::gh climax',
         config: defaultEditorConfig,
     },
     play: async ({ canvasElement }) => {
