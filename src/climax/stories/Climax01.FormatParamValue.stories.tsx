@@ -1,8 +1,8 @@
 import { within, expect } from '@storybook/test';
-import { ClimaxStory, climaxMeta } from './climaxStoriesConfig';
+import { ClimaxStory, climaxMeta } from './climaxStoriesConfig.ts';
 import { defaultEditorConfig } from '../../defaultEditorConfig.ts';
 
-const initialValueClimaxMeta = { ...climaxMeta, title: 'climax/01. Initial value' };
+const initialValueClimaxMeta = { ...climaxMeta, title: 'climax/Format param value' };
 export default initialValueClimaxMeta;
 
 export const Empty: ClimaxStory = {
